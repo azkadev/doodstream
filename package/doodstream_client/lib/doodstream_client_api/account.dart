@@ -36,7 +36,10 @@ Bukan maksud kami menipu itu karena harga yang sudah di kalkulasi + bantuan tiba
 
 import 'package:doodstream_client/doodstream_client_core.dart';
 
+/// Doodstream Api Account: 
 extension DoodstreamApiAccountExtension on DoodstreamClient {
+
+  /// get Information OF Current Api Key
   Future<Map> Account_AccountInfo({
     String? apiKey,
   }) async {
@@ -44,7 +47,7 @@ extension DoodstreamApiAccountExtension on DoodstreamClient {
       apiKey: apiKey,
     );
   }
-
+  /// Get Informations Account Report
   Future<Map> Account_AccountReports({
     String? last,
     String? from_date,
@@ -58,7 +61,7 @@ extension DoodstreamApiAccountExtension on DoodstreamClient {
       apiKey: apiKey,
     );
   }
-
+  /// get Account DMCA LIST
   Future<Map> Account_DMCAList({
     String? page,
     String? per_page,

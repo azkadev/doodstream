@@ -36,6 +36,4 @@ Bukan maksud kami menipu itu karena harga yang sudah di kalkulasi + bantuan tiba
 
 import 'package:doodstream_client/doodstream_client_core.dart';
 
-extension DoodstreamApiManageFoldersExtension on DoodstreamClient {
-  
-}
+extension DoodstreamApiManageFoldersExtension on DoodstreamClient {}

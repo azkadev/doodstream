@@ -34,15 +34,19 @@ Bukan maksud kami menipu itu karena harga yang sudah di kalkulasi + bantuan tiba
 <!-- END LICENSE --> */
 // ignore_for_file: empty_catches
 
+/// Doodstream utils for speed up development
 class DoodstreamUtils {
-  DoodstreamUtils();
 
+  /// Nothing acces
+  DoodstreamUtils();
+  /// Automatic Parse Any data do file_code or file_id
   static String parseToFileId({
     required dynamic data,
   }) {
     try {
       if (data is String) {
-        if (RegExp("(^(http(s)?)|(/))", caseSensitive: false).hasMatch(data) == false) {
+        if (RegExp("(^(http(s)?)|(/))", caseSensitive: false).hasMatch(data) ==
+            false) {
           return data;
         }
         return Uri.parse(data).pathSegments.lastOrNull ?? "";

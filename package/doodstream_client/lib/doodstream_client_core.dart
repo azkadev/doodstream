@@ -42,10 +42,23 @@ import "package:general_lib/general_lib.dart";
 
 import "package:http/http.dart";
 
+/// DoodstreamClient
+///
+/// OFFICIAL DOCS: https://doodstream.com/api-docs
+///
+/// GET API KEY DOODSTREAM: https://doodstream.com/settings
+///
 class DoodstreamClient {
   Client http_client = Client();
   String api_key;
-  
+
+  /// DoodstreamClient
+  ///
+  /// OFFICIAL DOCS: https://doodstream.com/api-docs
+  ///
+  /// GET API KEY DOODSTREAM: https://doodstream.com/settings
+  ///
+  ///
   DoodstreamClient({
     required this.api_key,
     Client? httpClient,
@@ -55,10 +68,12 @@ class DoodstreamClient {
     }
   }
 
+  /// Api Url: https://doodapi.com
   Uri get api_url {
     return Uri.parse("https://doodapi.com");
   }
 
+  /// Invoke_raw
   FutureOr<Map> _invokeRaw({
     required Map? parameters,
     required String uriPath,
@@ -156,6 +171,8 @@ class DoodstreamClient {
     return jsonData;
   }
 
+  /// call api with latest features
+  /// DOCS: https://doodstream.com/api-docs#
   FutureOr<Map> invoke({
     required String uriPath,
     Map<String, dynamic>? uriQueryParameters,
@@ -483,6 +500,7 @@ class DoodstreamClient {
 
     return result;
   }
+
   /// get currrent accounts: https://doodstream.com/api-docs#files-copy
   Future<Map> getFileStatus({
     required String file_code,
@@ -500,7 +518,6 @@ class DoodstreamClient {
 
     return result;
   }
-
 
   /// get currrent accounts: https://doodstream.com/api-docs#files-copy
   Future<Map> getFileInfo({
@@ -520,7 +537,6 @@ class DoodstreamClient {
     return result;
   }
 
-
   /// get currrent accounts: https://doodstream.com/api-docs#files-copy
   Future<Map> getFileThumbnail({
     required String file_code,
@@ -538,7 +554,6 @@ class DoodstreamClient {
 
     return result;
   }
-
 
   /// get currrent accounts: https://doodstream.com/api-docs#files-copy
   Future<Map> setNameFile({
@@ -560,7 +575,6 @@ class DoodstreamClient {
     return result;
   }
 
-
   /// get currrent accounts: https://doodstream.com/api-docs#files-copy
   Future<Map> moveFile({
     required String file_code,
@@ -581,16 +595,14 @@ class DoodstreamClient {
     return result;
   }
 
-
   /// get currrent accounts: https://doodstream.com/api-docs#files-copy
   Future<Map> searchFile({
     required String search_term,
-    
     String? apiKey,
   }) async {
     Map result = await invoke(
       uriPath: "search/videos",
-      uriQueryParameters: { 
+      uriQueryParameters: {
         "search_term": search_term,
       },
       apiKey: apiKey,
@@ -600,7 +612,4 @@ class DoodstreamClient {
 
     return result;
   }
-
-
-
 }

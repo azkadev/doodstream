@@ -68,7 +68,7 @@ extension DoodstreamApiAccountExtension on DoodstreamClient {
 
   Future<Map> Account_DMCAList({
     String? page,
-    String? per_page,
+    String per_page = "500",
     String? apiKey,
   }) async {
     return await getDmcaList(

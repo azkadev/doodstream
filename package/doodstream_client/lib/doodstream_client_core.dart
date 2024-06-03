@@ -222,7 +222,10 @@ class DoodstreamClient {
 
   // https://doodstream.com/api-docs#account
 
-  /// get currrent accounts: https://doodstream.com/api-docs#account
+  /// Get basic info of your account
+  ///
+  /// DOCS: https://doodstream.com/api-docs#account
+  ///
   Future<Map> getMe({
     String? apiKey,
   }) async {
@@ -235,7 +238,9 @@ class DoodstreamClient {
     return result;
   }
 
-  /// get currrent accounts: https://doodstream.com/api-docs#account-reports
+  /// Get reports of your account (default last 7 days)
+  ///
+  /// DOCS: https://doodstream.com/api-docs#account-reports
   Future<Map> getAccountReports({
     String? last,
     String? from_date,
@@ -257,18 +262,20 @@ class DoodstreamClient {
     return result;
   }
 
-  /// get currrent accounts: https://doodstream.com/api-docs#account-dmca
+  /// Get DMCA reported files list (500 results per page)
+  ///
+  /// DOCS: https://doodstream.com/api-docs#account-dmca
   Future<Map> getDmcaList({
+    String per_page = "500",
     String? page,
-    String? per_page,
     String? apiKey,
   }) async {
     Map result = await invoke(
       uriPath: "dmca/list",
       apiKey: apiKey,
       uriQueryParameters: {
-        "page": page,
         "per_page": per_page,
+        "page": page,
       },
       statusCodes: [200],
       specialTypeName: "dmca",
@@ -282,7 +289,9 @@ class DoodstreamClient {
 
   // upload api
 
-  /// get currrent accounts: https://doodstream.com/api-docs#files-copy
+  /// Upload local files using API
+////
+  /// DOCS: https://doodstream.com/api-docs#files-copy
   Future<Map> uploadFileFromLocal({
     required File file,
     String? apiKey,
@@ -305,7 +314,9 @@ class DoodstreamClient {
     return result;
   }
 
-  /// get currrent accounts: https://doodstream.com/api-docs#files-copy
+  /// Copy / Clone your's or other's file
+  ///
+  /// DOCS: https://doodstream.com/api-docs#files-copy
   Future<Map> copyOrCloneFile({
     required String file_code,
     String? folder_id,
@@ -328,8 +339,9 @@ class DoodstreamClient {
 //  upload complete
 //
 //
-
-  /// get currrent accounts: https://doodstream.com/api-docs#files-copy
+  /// Upload files using direct links
+  ///
+  /// DOCS: https://doodstream.com/api-docs#files-copy
   Future<Map> uploadFileFromRemote({
     required String url,
     String? folder_id,
@@ -351,7 +363,9 @@ class DoodstreamClient {
     return result;
   }
 
-  /// get currrent accounts: https://doodstream.com/api-docs#files-copy
+  /// Remote Upload List & Status
+  ///
+  /// DOCS: https://doodstream.com/api-docs#files-copy
   Future<Map> getRemoteUploads({
     String? apiKey,
   }) async {
@@ -365,7 +379,9 @@ class DoodstreamClient {
     return result;
   }
 
-  /// get currrent accounts: https://doodstream.com/api-docs#files-copy
+  /// Remote Upload Status
+  ///
+  /// DOCS: https://doodstream.com/api-docs#files-copy
   Future<Map> getRemoteUploadStatus({
     required String file_code,
     String? apiKey,
@@ -383,7 +399,9 @@ class DoodstreamClient {
     return result;
   }
 
-  /// get currrent accounts: https://doodstream.com/api-docs#files-copy
+  /// Get total & used remote upload slots
+  ///
+  /// DOCS: https://doodstream.com/api-docs#files-copy
   Future<Map> getRemoteUploadSlots({
     String? apiKey,
   }) async {
@@ -397,7 +415,9 @@ class DoodstreamClient {
     return result;
   }
 
-  /// get currrent accounts: https://doodstream.com/api-docs#files-copy
+  /// Perform various actions on remote upload
+  ///
+  /// DOCS: https://doodstream.com/api-docs#files-copy
   Future<Map> sendRemoteUploadActions({
     dynamic restart_errors,
     dynamic clear_errors,
@@ -421,7 +441,9 @@ class DoodstreamClient {
     return result;
   }
 
-  /// get currrent accounts: https://doodstream.com/api-docs#files-copy
+  /// Create a folder
+  ///
+  /// DOCS: https://doodstream.com/api-docs#files-copy
   Future<Map> createFolder({
     String? name,
     String? parent_id,
@@ -441,7 +463,9 @@ class DoodstreamClient {
     return result;
   }
 
-  /// get currrent accounts: https://doodstream.com/api-docs#files-copy
+  /// List all folders
+  ///
+  /// DOCS: https://doodstream.com/api-docs#files-copy
   Future<Map> setNameFolder({
     String? name,
     String? folder_id,
@@ -461,7 +485,9 @@ class DoodstreamClient {
     return result;
   }
 
-  /// get currrent accounts: https://doodstream.com/api-docs#files-copy
+  /// List all folders
+  ///
+  /// DOCS: https://doodstream.com/api-docs#files-copy
   Future<Map> getListFolderAndFiles({
     String? folder_id,
     bool? only_folders,
@@ -482,7 +508,9 @@ class DoodstreamClient {
   }
   // manage folder and done
 
-  /// get currrent accounts: https://doodstream.com/api-docs#files-copy
+  /// List all files
+  ///
+  /// DOCS: https://doodstream.com/api-docs#files-copy
   Future<Map> getListFiles({
     int page = 0,
     int per_page = 200,
@@ -506,7 +534,9 @@ class DoodstreamClient {
     return result;
   }
 
-  /// get currrent accounts: https://doodstream.com/api-docs#files-copy
+  /// Check status of your file
+  ///
+  /// DOCS: https://doodstream.com/api-docs#files-copy
   Future<Map> getFileStatus({
     required String file_code,
     String? apiKey,
@@ -524,7 +554,9 @@ class DoodstreamClient {
     return result;
   }
 
-  /// get currrent accounts: https://doodstream.com/api-docs#files-copy
+  /// Get file info
+  ///
+  /// DOCS: https://doodstream.com/api-docs#files-copy
   Future<Map> getFileInfo({
     required String file_code,
     String? apiKey,
@@ -542,7 +574,9 @@ class DoodstreamClient {
     return result;
   }
 
-  /// get currrent accounts: https://doodstream.com/api-docs#files-copy
+  /// Get file splash, single or thumbnail image
+  ///
+  /// DOCS: https://doodstream.com/api-docs#files-copy
   Future<Map> getFileThumbnail({
     required String file_code,
     String? apiKey,
@@ -560,7 +594,9 @@ class DoodstreamClient {
     return result;
   }
 
-  /// get currrent accounts: https://doodstream.com/api-docs#files-copy
+  /// Rename your file
+  ///
+  /// DOCS: https://doodstream.com/api-docs#files-copy
   Future<Map> setNameFile({
     required String file_code,
     required String title,
@@ -580,7 +616,9 @@ class DoodstreamClient {
     return result;
   }
 
-  /// get currrent accounts: https://doodstream.com/api-docs#files-copy
+  /// Move your file from one folder to another
+  ///
+  /// DOCS: https://doodstream.com/api-docs#files-copy
   Future<Map> moveFile({
     required String file_code,
     required String to_folder_id,
@@ -600,7 +638,9 @@ class DoodstreamClient {
     return result;
   }
 
-  /// get currrent accounts: https://doodstream.com/api-docs#files-copy
+  /// Search your files
+  ///
+  /// DOCS: https://doodstream.com/api-docs#files-copy
   Future<Map> searchFile({
     required String search_term,
     String? apiKey,

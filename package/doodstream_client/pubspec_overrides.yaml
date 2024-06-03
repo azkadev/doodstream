@@ -1,0 +1,4 @@
+# # melos_managed_dependency_overrides: edge_dart_runtime
+# dependency_overrides: 
+#   doodstream_client_scheme:
+#     # path: ../doodstream_client_scheme

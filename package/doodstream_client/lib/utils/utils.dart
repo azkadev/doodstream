@@ -36,9 +36,9 @@ Bukan maksud kami menipu itu karena harga yang sudah di kalkulasi + bantuan tiba
 
 /// Doodstream utils for speed up development
 class DoodstreamUtils {
-
   /// Nothing acces
   DoodstreamUtils();
+
   /// Automatic Parse Any data do file_code or file_id
   static String parseToFileId({
     required dynamic data,

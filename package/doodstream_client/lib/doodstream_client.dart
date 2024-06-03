@@ -32,9 +32,6 @@ Bukan maksud kami menipu itu karena harga yang sudah di kalkulasi + bantuan tiba
 
 
 <!-- END LICENSE --> */
-/// Support for doing something awesome.
-///
-/// More dartdocs go here.
 export "doodstream_client_core.dart";
 
 export "package:doodstream_client/doodstream_client_api/doodstream_client_api.dart";

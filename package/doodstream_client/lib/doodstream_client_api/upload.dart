@@ -34,9 +34,23 @@ Bukan maksud kami menipu itu karena harga yang sudah di kalkulasi + bantuan tiba
 <!-- END LICENSE --> */
 // ignore_for_file: non_constant_identifier_names
 
+import 'dart:io';
+
 import 'package:doodstream_client/doodstream_client_core.dart';
 
 extension DoodstreamApiUploadExtension on DoodstreamClient {
+  /// Upload local files using API
+  Future<Map> Upload_LocalUpload({
+    required File file,
+    String? apiKey,
+  }) async {
+    return await uploadFileFromLocal(
+      file: file,
+      apiKey: apiKey,
+    );
+  }
+
+  /// Copy / Clone your's or other's file
   Future<Map> Upload_CopyOrClone({
     required String file_code,
     String? folder_id,

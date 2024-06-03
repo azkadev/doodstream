@@ -36,4 +36,67 @@ Bukan maksud kami menipu itu karena harga yang sudah di kalkulasi + bantuan tiba
 
 import 'package:doodstream_client/doodstream_client_core.dart';
 
-extension DoodstreamApiRemoteUploadExtension on DoodstreamClient {}
+extension DoodstreamApiRemoteUploadExtension on DoodstreamClient {
+  /// Upload files using direct links
+  Future<Map> RemoteUpload_AddLink({
+    required String url,
+    String? folder_id,
+    String? new_title,
+    String? apiKey,
+  }) async {
+    return await uploadFileFromRemote(
+      url: url,
+      folder_id: folder_id,
+      new_title: new_title,
+      apiKey: apiKey,
+    );
+  }
+
+  /// Remote Upload List & Status
+  Future<Map> RemoteUpload_UploadList({
+    String? apiKey,
+  }) async {
+    return await getRemoteUploads(
+      apiKey: apiKey,
+    );
+  }
+
+  /// Remote Upload Status
+
+  Future<Map> RemoteUpload_UploadStatus({
+    required String file_code,
+    String? apiKey,
+  }) async {
+    return await getRemoteUploadStatus(
+      file_code: file_code,
+      apiKey: apiKey,
+    );
+  }
+
+  /// Get total & used remote upload slots
+
+  Future<Map> RemoteUpload_UploadSlots({
+    String? apiKey,
+  }) async {
+    return await getRemoteUploadSlots(
+      apiKey: apiKey,
+    );
+  }
+
+  /// Perform various actions on remote upload
+  Future<Map> RemoteUpload_UploadActions({
+    dynamic restart_errors,
+    dynamic clear_errors,
+    dynamic clear_all,
+    dynamic delete_code,
+    String? apiKey,
+  }) async {
+    return await sendRemoteUploadActions(
+      restart_errors: restart_errors,
+      clear_errors: clear_errors,
+      clear_all: clear_all,
+      delete_code: delete_code,
+      apiKey: apiKey,
+    );
+  }
+}

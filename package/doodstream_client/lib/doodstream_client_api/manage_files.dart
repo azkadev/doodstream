@@ -36,5 +36,98 @@ Bukan maksud kami menipu itu karena harga yang sudah di kalkulasi + bantuan tiba
 
 import 'package:doodstream_client/doodstream_client_core.dart';
 
-/// List Extension functions manage 
-extension DoodstreamApiManageFilesExtension on DoodstreamClient {}
+/// List Extension functions manage
+extension DoodstreamApiManageFilesExtension on DoodstreamClient {
+  /// List all files
+  Future<Map> ManageFiles_ListFiles({
+    int page = 0,
+    int per_page = 200,
+    String? folder_id,
+    String? created,
+    String? apiKey,
+  }) async {
+    return await getListFiles(
+      page: page,
+      per_page: per_page,
+      folder_id: folder_id,
+      created: created,
+      apiKey: apiKey,
+    );
+  }
+
+  /// Check status of your file
+
+  Future<Map> ManageFiles_FileStatus({
+    required String file_code,
+    String? apiKey,
+  }) async {
+    return await getFileStatus(
+      file_code: file_code,
+      apiKey: apiKey,
+    );
+  }
+
+  /// Get file info
+
+  Future<Map> ManageFiles_FileInfo({
+    required String file_code,
+    String? apiKey,
+  }) async {
+    return await getFileInfo(
+      file_code: file_code,
+      apiKey: apiKey,
+    );
+  }
+
+  /// Get file splash, single or thumbnail image
+
+  Future<Map> ManageFiles_FileThumbnail({
+    required String file_code,
+    String? apiKey,
+  }) async {
+    return await getFileThumbnail(
+      file_code: file_code,
+      apiKey: apiKey,
+    );
+  }
+
+  /// Rename your file
+
+  Future<Map> ManageFiles_FileRename({
+    required String file_code,
+    required String title,
+    String? apiKey,
+  }) async {
+    return await setNameFile(
+      file_code: file_code,
+      title: title,
+      apiKey: apiKey,
+    );
+  }
+
+  /// Move your file from one folder to another
+
+  Future<Map> ManageFiles_FileMove({
+    required String file_code,
+    required String to_folder_id,
+    String? apiKey,
+  }) async {
+    return await moveFile(
+      file_code: file_code,
+      to_folder_id: to_folder_id,
+      apiKey: apiKey,
+    );
+  }
+
+  /// Search your files
+
+  Future<Map> ManageFiles_FileSearch({
+    required String search_term,
+    String? apiKey,
+  }) async {
+    return await searchFile(
+      search_term: search_term,
+      apiKey: apiKey,
+    );
+  }
+}

@@ -92,7 +92,8 @@ class DoodstreamClient {
 
     uriQueryParameters ??= {};
     uriQueryParameters.addAll({"key": apiKey});
-    uriQueryParameters.removeWhere((key, value) => (value == null || (value is String && value.isEmpty)));
+    uriQueryParameters.removeWhere(
+        (key, value) => (value == null || (value is String && value.isEmpty)));
     Uri uri = api_url.replace(
       path: "/api/${uriPath}",
       queryParameters: uriQueryParameters,
@@ -109,16 +110,20 @@ class DoodstreamClient {
 
     Response response = await Future(() async {
       if (method_request == "post") {
-        return await http_client.post(uri, headers: headers, body: json.encode(parameters));
+        return await http_client.post(uri,
+            headers: headers, body: json.encode(parameters));
       }
       if (method_request == "delete") {
-        return await http_client.delete(uri, headers: headers, body: json.encode(parameters));
+        return await http_client.delete(uri,
+            headers: headers, body: json.encode(parameters));
       }
       if (method_request == "put") {
-        return await http_client.put(uri, headers: headers, body: json.encode(parameters));
+        return await http_client.put(uri,
+            headers: headers, body: json.encode(parameters));
       }
       if (method_request == "patch") {
-        return await http_client.patch(uri, headers: headers, body: json.encode(parameters));
+        return await http_client.patch(uri,
+            headers: headers, body: json.encode(parameters));
       }
       return await http_client.get(
         uri,
@@ -159,7 +164,8 @@ class DoodstreamClient {
       jsonData.addAll(jsonResultRaw);
     } else if (jsonResultRaw is List) {
       jsonData["total_count"] = jsonResultRaw.length;
-      jsonData[keyResultList.snakeCaseClass()] = (jsonResultRaw.whereType<Map>().map((e) {
+      jsonData[keyResultList.snakeCaseClass()] =
+          (jsonResultRaw.whereType<Map>().map((e) {
         Map json_data = {};
         json_data["@type"] = specialTypeName;
         json_data.addAll(e);
@@ -482,7 +488,6 @@ class DoodstreamClient {
     int per_page = 200,
     String? folder_id,
     String? created,
-    bool? only_folders,
     String? apiKey,
   }) async {
     Map result = await invoke(

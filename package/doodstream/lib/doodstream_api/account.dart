@@ -32,7 +32,49 @@ Bukan maksud kami menipu itu karena harga yang sudah di kalkulasi + bantuan tiba
 
 
 <!-- END LICENSE --> */
+// ignore_for_file: non_constant_identifier_names
 
-export "package:doodstream_client/doodstream_client_api/doodstream_client_api.dart";
-export "package:doodstream_client/utils/utils.dart";
-export "doodstream_client_core.dart";
+import 'package:doodstream/doodstream_core.dart';
+
+/// Doodstream Api Account:
+extension DoodstreamApiAccountExtension on Doodstream {
+  /// Get basic info of your account
+
+  Future<Map> Account_AccountInfo({
+    String? apiKey,
+  }) async {
+    return await getMe(
+      apiKey: apiKey,
+    );
+  }
+
+  /// Get reports of your account (default last 7 days)
+
+  Future<Map> Account_AccountReports({
+    String? last,
+    String? from_date,
+    String? to_date,
+    String? apiKey,
+  }) async {
+    return await getAccountReports(
+      last: last,
+      from_date: from_date,
+      to_date: to_date,
+      apiKey: apiKey,
+    );
+  }
+
+  /// Get DMCA reported files list (500 results per page)
+
+  Future<Map> Account_DMCAList({
+    String? page,
+    String per_page = "500",
+    String? apiKey,
+  }) async {
+    return await getDmcaList(
+      page: page,
+      per_page: per_page,
+      apiKey: apiKey,
+    );
+  }
+}

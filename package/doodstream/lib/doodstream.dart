@@ -33,6 +33,6 @@ Bukan maksud kami menipu itu karena harga yang sudah di kalkulasi + bantuan tiba
 
 <!-- END LICENSE --> */
 
-export "package:doodstream_client/doodstream_client_api/doodstream_client_api.dart";
-export "package:doodstream_client/utils/utils.dart";
-export "doodstream_client_core.dart";
+export "package:doodstream/doodstream_api/doodstream_api.dart";
+export "package:doodstream/utils/utils.dart";
+export "doodstream_core.dart";

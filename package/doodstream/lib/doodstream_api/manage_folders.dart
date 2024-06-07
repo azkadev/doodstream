@@ -32,7 +32,49 @@ Bukan maksud kami menipu itu karena harga yang sudah di kalkulasi + bantuan tiba
 
 
 <!-- END LICENSE --> */
+// ignore_for_file: non_constant_identifier_names
 
-export "package:doodstream_client/doodstream_client_api/doodstream_client_api.dart";
-export "package:doodstream_client/utils/utils.dart";
-export "doodstream_client_core.dart";
+import 'package:doodstream/doodstream_core.dart';
+
+extension DoodstreamApiManageFoldersExtension on Doodstream {
+  /// Create a folder
+  Future<Map> ManageFolders_CreateFolder({
+    required String name,
+    String? parent_id,
+    String? apiKey,
+  }) async {
+    return await createFolder(
+      name: name,
+      parent_id: parent_id,
+      apiKey: apiKey,
+    );
+  }
+
+  /// List all folders
+
+  Future<Map> ManageFolders_RenameFolder({
+    required String name,
+    required String folder_id,
+    String? apiKey,
+  }) async {
+    return await setNameFolder(
+      name: name,
+      folder_id: folder_id,
+      apiKey: apiKey,
+    );
+  }
+
+  /// List all folders
+
+  Future<Map> ManageFolders_ListFolderAndFiles({
+    String? folder_id,
+    bool? only_folders,
+    String? apiKey,
+  }) async {
+    return await getListFolderAndFiles(
+      folder_id: folder_id,
+      only_folders: only_folders,
+      apiKey: apiKey,
+    );
+  }
+}

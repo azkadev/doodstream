@@ -32,7 +32,8 @@ Bukan maksud kami menipu itu karena harga yang sudah di kalkulasi + bantuan tiba
 
 
 <!-- END LICENSE --> */
+// ignore_for_file: non_constant_identifier_names
 
-export "package:doodstream_client/doodstream_client_api/doodstream_client_api.dart";
-export "package:doodstream_client/utils/utils.dart";
-export "doodstream_client_core.dart";
+import 'package:doodstream/doodstream_core.dart';
+
+extension DoodstreamApiExtrasExtension on Doodstream {}

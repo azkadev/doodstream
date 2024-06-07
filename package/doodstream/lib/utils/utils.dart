@@ -32,7 +32,27 @@ Bukan maksud kami menipu itu karena harga yang sudah di kalkulasi + bantuan tiba
 
 
 <!-- END LICENSE --> */
+// ignore_for_file: empty_catches
 
-export "package:doodstream_client/doodstream_client_api/doodstream_client_api.dart";
-export "package:doodstream_client/utils/utils.dart";
-export "doodstream_client_core.dart";
+/// Doodstream utils for speed up development
+class DoodstreamUtils {
+  /// Nothing acces
+  DoodstreamUtils();
+
+  /// Automatic Parse Any data do file_code or file_id
+  static String parseToFileId({
+    required dynamic data,
+  }) {
+    try {
+      if (data is String) {
+        if (RegExp("(^(http(s)?)|(/))", caseSensitive: false).hasMatch(data) == false) {
+          return data;
+        }
+        return Uri.parse(data).pathSegments.lastOrNull ?? "";
+      } else if (data is Uri) {
+        return data.pathSegments.lastOrNull ?? "";
+      }
+    } catch (e) {}
+    return "";
+  }
+}

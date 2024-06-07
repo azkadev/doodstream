@@ -1,0 +1,25 @@
+name: 'doodstream'
+description: 'Doodstream Library for interact with system Api'
+version: '0.0.0'
+homepage: 'https://github.com/azkadev/doodstream'
+repository: 'https://github.com/azkadev/doodstream'
+issue_tracker: 'https://github.com/azkadev/doodstream/issues'
+documentation: 'https://github.com/azkadev/doodstream/tree/main/docs'
+funding: 
+  - 'https://github.com/sponsors/azkadev'
+platforms: 
+  android: null
+  ios: null
+  linux: null
+  macos: null
+  web: null
+  windows: null
+environment: 
+  sdk: '^3.2.3'
+dependencies: 
+  http: '^1.2.1'
+  general_lib: '^0.0.41'
+  path: '^1.9.0'
+dev_dependencies: 
+  lints: '^4.0.0'
+  test: '^1.24.0'

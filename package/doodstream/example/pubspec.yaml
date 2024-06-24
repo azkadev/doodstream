@@ -13,3 +13,5 @@ dev_dependencies:
   test: '^1.24.0'
 dependency_overrides: 
   pointycastle: '3.8.0'
+funding: 
+  - 'https://github.com/sponsors/azkadev'

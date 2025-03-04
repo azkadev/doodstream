@@ -5,14 +5,14 @@ publish_to: 'none'
 environment:
   sdk: '>=3.6.0 <4.0.0'
 dependencies:
-  general_lib: '^0.0.63'
+  general_lib: '^0.0.67'
   doodstream:
     path: '/home/galaxeus/.pub-cache/hosted/pub.dev/doodstream-0.0.0'
 dev_dependencies:
   lints: '^5.0.0'
   test: 'any'
 dependency_overrides:
-  pointycastle: '3.8.0'
+  pointycastle: '4.0.0'
   mime: '^2.0.0'
 funding:
   - 'https://github.com/sponsors/azkadev'
@@ -21,3 +21,5 @@ homepage: 'https://youtube.com/@azkadev'
 repository: 'https://github.com/azkadev/general_framework'
 issue_tracker: 'https://t.me/DEVELOPER_GLOBAL_PUBLIC'
 documentation: 'https://youtube.com/@azkadev'
+project:
+  type: ''

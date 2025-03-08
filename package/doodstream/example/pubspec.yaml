@@ -5,7 +5,7 @@ publish_to: 'none'
 environment:
   sdk: '>=3.6.0 <4.0.0'
 dependencies:
-  general_lib: '^0.0.69'
+  general_lib: '^0.0.70'
   doodstream:
     path: '/home/galaxeus/.pub-cache/hosted/pub.dev/doodstream-0.0.0'
 dev_dependencies:
